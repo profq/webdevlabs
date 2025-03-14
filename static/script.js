@@ -27,7 +27,6 @@ function SumNPrint(x1, x2) {
  }
 
 /*
-
 // For Loop
 // Define two arrays containing fruit names
 var L1 = ["Watermelon", "Pineapple", "Pear", "Banana"];
@@ -61,9 +60,9 @@ L2.forEach((element, index) => {
         alert("We found a banana in the second array at index " + index);
     }
 });
-*/
 
-/*
+
+
 // Conditional Date Greeting for Console
 function greetingFunc() {
     var d = new Date();  // Create a new Date object to get the current time
@@ -131,3 +130,41 @@ console.log(L);  // Log the full URL to the console for debugging
 if (L.includes("index.html")) {  
    greetingFunc();  // Call the function to update the greeting
 }
+
+// Get the Year for the Footer
+function addYear() {
+    var d = new Date();
+    var y = d.getFullYear();
+    var E = document.getElementById("copyYear");
+    E.innerHTML+=y;
+ } 
+
+ // Show and Hide List
+ function showList() {
+    document.getElementById("FavList").style.display = "block";
+    document.getElementById("SeeMoreBTN").style.display = "none";
+ } 
+
+ $("#readLess").click(function(){
+    $("#longIntro").hide();
+    $("#readLess").hide();   
+    $("#readMore").show();      
+
+  });
+  
+  $("#readMore").click(function(){
+    $("#longIntro").show();
+    $("#readLess").show();
+    $("#readMore").hide();      
+  });
+
+  // Form validation
+  function validate() {
+    var userName = document.getElementById("name");
+    var userEmail = document.getElementById("email");
+    var userText = document.getElementById("text");
+    var msg = document.getElementById("ValidateMsg");
+    if (!userName.checkValidity() || !userEmail.checkValidity() || !userText.checkValidity()) {
+        msg.innerHTML = "Please fill out the form correctly so I can get back to you :)";
+    }
+ } 
