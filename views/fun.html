@@ -16,7 +16,7 @@
     <script defer src="../static/script.js"></script>
 
 </head>
-<body>
+<body onload=" addYear()">
     <header>
         <h1 id="webname">your name</h1>
         <nav>
@@ -28,7 +28,8 @@
     </header>
     <div class="main">
         <h2>Things I love to do for fun</h2>
-        <ul>
+        <button id="SeeMoreBTN" onclick="showList()">Click to see...</button>
+        <ul id="FavList">
             <li>Activity 1</li>
             <li>Activity 2</li>
             <li>Activity 3</li>
@@ -36,6 +37,8 @@
             <li>Activity 5</li>
         </ul>
     </div>
-    <footer>&copy; 2025 designed 🎨 and coded 👩🏻‍💻 by your name</footer>
+    <footer>        
+        <p id="copyYear">designed 🎨 and coded 👩🏻‍💻 by your name &copy; </p>
+    </footer>
 </body>
 </html>
