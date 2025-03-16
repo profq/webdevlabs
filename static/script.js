@@ -133,38 +133,45 @@ if (L.includes("index.html")) {
 
 // Get the Year for the Footer
 function addYear() {
-    var d = new Date();
-    var y = d.getFullYear();
-    var E = document.getElementById("copyYear");
-    E.innerHTML+=y;
+    var d = new Date(); // Creates a new Date object
+    var y = d.getFullYear(); // Extracts the current year (e.g., 2025)
+    var E = document.getElementById("copyYear"); // Finds the element with ID "copyYear"
+    E.innerHTML+=y;  // Appends the year to the existing content
  } 
 
- // Show and Hide List
+ // Click to see button
  function showList() {
-    document.getElementById("FavList").style.display = "block";
-    document.getElementById("SeeMoreBTN").style.display = "none";
+    document.getElementById("FavList").style.display = "block"; // Makes the list visible
+    document.getElementById("SeeMoreBTN").style.display = "none"; // Hides the "See More" button
  } 
 
- $("#readLess").click(function(){
-    $("#longIntro").hide();
-    $("#readLess").hide();   
-    $("#readMore").show();      
+  // Read more and less buttons
+
+  // When the "Read Less" button is clicked
+ $("#readLess").click(function(){ 
+    $("#longIntro").hide(); // Hide the long introduction text
+    $("#readLess").hide();  // Hide the "Read Less" button itself
+    $("#readMore").show();  // Show the "Read More" button  
 
   });
   
+  // When the "Read More" button is clicked
   $("#readMore").click(function(){
-    $("#longIntro").show();
-    $("#readLess").show();
-    $("#readMore").hide();      
+    $("#longIntro").show();  // Show the long introduction text
+    $("#readLess").show();   // Show the "Read Less" button
+    $("#readMore").hide();   // Hide the "Read More" button  
   });
 
   // Form validation
   function validate() {
+    // Get the input fields and validation message element by their IDs
     var userName = document.getElementById("name");
     var userEmail = document.getElementById("email");
     var userText = document.getElementById("text");
-    var msg = document.getElementById("ValidateMsg");
+    var msg = document.getElementById("ValidateMsg"); // Element to display validation message
+    // Check if any of the fields are invalid using checkValidity()
     if (!userName.checkValidity() || !userEmail.checkValidity() || !userText.checkValidity()) {
+        // If any field is invalid, display an error message
         msg.innerHTML = "Please fill out the form correctly so I can get back to you :)";
     }
  } 
