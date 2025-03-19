@@ -26,7 +26,7 @@ function SumNPrint(x1, x2) {
     console.log("good job!");
  }
 
-/*
+/* Lab 3 ONLY
 // For Loop
 // Define two arrays containing fruit names
 var L1 = ["Watermelon", "Pineapple", "Pear", "Banana"];
@@ -60,8 +60,6 @@ L2.forEach((element, index) => {
         alert("We found a banana in the second array at index " + index);
     }
 });
-
-
 
 // Conditional Date Greeting for Console
 function greetingFunc() {
@@ -139,13 +137,15 @@ function addYear() {
     E.innerHTML+=y;  // Appends the year to the existing content
  } 
 
+ /* Lab 4 ONLY
  // Click to see button
  function showList() {
     document.getElementById("FavList").style.display = "block"; // Makes the list visible
     document.getElementById("SeeMoreBTN").style.display = "none"; // Hides the "See More" button
  } 
+*/
 
-  // Read more and less buttons
+// Read more and less buttons
 
   // When the "Read Less" button is clicked
  $("#readLess").click(function(){ 
@@ -155,14 +155,14 @@ function addYear() {
 
   });
   
-  // When the "Read More" button is clicked
+// When the "Read More" button is clicked
   $("#readMore").click(function(){
     $("#longIntro").show();  // Show the long introduction text
     $("#readLess").show();   // Show the "Read Less" button
     $("#readMore").hide();   // Hide the "Read More" button  
   });
 
-  // Form validation
+// Form validation
   function validate() {
     // Get the input fields and validation message element by their IDs
     var userName = document.getElementById("name");
@@ -175,3 +175,20 @@ function addYear() {
         msg.innerHTML = "Please fill out the form correctly so I can get back to you :)";
     }
  } 
+
+ // Advice Slip API
+ function getAdvice() {
+    // Send a request to the Advice Slip API to get random advice
+    fetch("https://api.adviceslip.com/advice")
+        .then(response => response.json()) // Convert the API response to a JavaScript object
+        .then(data => {
+            // Extract the "advice" text from the JSON response and display it on the webpage
+            document.getElementById("adviceText").innerText = data.slip.advice;
+        })
+        .catch(error => {
+            // If something goes wrong (like no internet), log the error in the console
+            console.error("Error fetching advice:", error);
+            // Display a user-friendly error message on the webpage
+            document.getElementById("adviceText").innerText = "Oops! Something went wrong. Try again.";
+        });
+}

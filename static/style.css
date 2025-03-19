@@ -46,10 +46,12 @@ input[type="submit"] {
     padding: 10px;
     border-radius: 5px;
 }
-
+/*
 #FavList {
     display: none;
  }
+*/
+
  #SeeMoreBTN{
     background-color: lightgrey;
     border: 0px;
@@ -74,3 +76,43 @@ input[type="submit"] {
     width: max-content;
     margin: auto;
  }
+
+ .funIMG {
+    border-radius: 100%; /* Makes the element circular if it's a square */
+    width: 75%; /* Sets the element’s width to 20% of its containing element */
+    /* border:1px dotted grey; */
+ }
+
+ .container {
+   display: inline-block;
+   border-radius: 10%;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container button {
+   padding: 10px 15px;
+   border: none;
+   background-color: #92ad70;
+   color: white;
+   font-size: 16px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.container button:hover {
+   background-color: darkgrey;
+}
+
+ /* The below setup creates a flexible, responsive layout where four items are aligned in a row, 
+ but they wrap to the next line if needed */
+
+ .mainLayout {
+   display: flex; /* Enables Flexbox layout for the container */
+   flex-wrap: wrap; /* Allows child elements to wrap onto new lines if necessary */
+   flex-direction: row; /* Aligns child elements in a horizontal row */
+}
+
+#item1, #item2, #item3, #item4 {
+   width: 40vw; /* Sets the width of each item to 40% of the viewport width */
+   margin: auto; /* Centers the items horizontally within the flex container */
+}
