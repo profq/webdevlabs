@@ -1,0 +1,127 @@
+/* Grid container for the full page layout */
+.containers {
+  display: grid; /* Enables CSS Grid layout */
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer"; /* Defines named areas in a single-column layout */
+  grid-template-rows: auto auto 1fr auto; /* Sets row heights */
+  gap: 1rem; /* Adds space between grid items */
+  min-height: 100vh; /* Makes the layout take the full viewport height */
+}
+
+/* Header section styling */
+.header {
+  grid-area: header; /* Places this in the 'header' grid area */
+  background: plum;
+  padding: 1rem;
+}
+
+/* Navigation section styling */
+.nav {
+  grid-area: nav;
+  background: pink;
+  padding: 1rem;
+}
+
+/* Navigation link color */
+.nav a {
+  color: white; /* Makes nav links white for better contrast */
+}
+
+/* Main content layout using nested grid */
+.main {
+  grid-area: main;
+  display: grid; /* Enables a nested grid inside main */
+  grid-template-areas:
+    "mainimg maincontent"
+    "bottomcontent bottomcontent"; /* Layout: image and content side-by-side, bottom content full width */
+  grid-template-columns: 1fr 2fr; /* First column (image) is 1/3, second column (content) is 2/3 */
+  grid-template-rows: auto auto; /* Two rows for top and bottom content */
+  gap: 1rem;
+  padding: 1rem;
+  background: #e0e0e0;
+}
+
+/* Left-side image area in main content */
+.mainimg {
+  grid-area: mainimg;
+  background: lightsalmon;
+  padding: 1rem;
+}
+
+/* Right-side text/content area in main content */
+.maincontent {
+  grid-area: maincontent;
+  background: lightgoldenrodyellow;
+  padding: 1rem;
+}
+
+/* Bottom full-width content block in main */
+.bottomcontent {
+  grid-area: bottomcontent;
+  background: lightgreen;
+  padding: 1rem;
+  grid-column: span 2; /* Makes it stretch across both columns */
+}
+
+/* Footer styling */
+.footer {
+  grid-area: footer;
+  background: lightskyblue;
+  padding: 1rem;
+  text-align: center; /* Centers footer text */
+}
+
+/* Mobile styles for smaller screens */
+@media (max-width: 768px) {
+  /* Adjust the main page grid for a single-column layout */
+  .container {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  /* Stack main sections vertically */
+  .main {
+    grid-template-areas:
+      "mainimg"
+      "maincontent"
+      "bottomcontent";
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+}
+
+/* Hamburger menu icon - hidden by default */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Mobile styles for nav links and hamburger menu */
+@media (max-width: 768px) {
+  /* Hide nav links by default, show when toggled */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: pink;
+  }
+
+  .nav-links.active {
+    display: flex; /* Shows nav links when .active is toggled via JavaScript */
+  }
+
+  /* Show the hamburger icon on small screens */
+  .menu-toggle {
+    display: block;
+    color: white;
+  }
+}
+
+  

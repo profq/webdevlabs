@@ -178,6 +178,7 @@ function addYear() {
 
  // Advice Slip API
  function getAdvice() {
+    const url = `https://api.adviceslip.com/advice?nocache=${new Date().getTime()}`;
     // Send a request to the Advice Slip API to get random advice
     fetch("https://api.adviceslip.com/advice")
         .then(response => response.json()) // Convert the API response to a JavaScript object
@@ -192,3 +193,47 @@ function addYear() {
             document.getElementById("adviceText").innerText = "Oops! Something went wrong. Try again.";
         });
 }
+
+// Wait until the entire HTML document has been fully loaded and parsed
+document.addEventListener("DOMContentLoaded", function () {
+  
+    // Get the hamburger icon element by its ID
+    const menuToggle = document.getElementById("menu-toggle");
+    
+    // Get the navigation links container by its ID
+    const navLinks = document.getElementById("nav-links");
+  
+    // Add a click event listener to the hamburger icon
+    menuToggle.addEventListener("click", function () {
+      // Toggle the 'active' class on the nav links container
+      // This shows or hides the menu on small screens
+      navLinks.classList.toggle("active");
+    });
+  });  
+  
+
+// Active Navigation
+document.addEventListener("DOMContentLoaded", function () {
+    // Select all <a> links inside the <nav>
+    const navLinks = document.querySelectorAll("nav a");
+  
+    // Get the current path from the browser's URL
+    const currentPath = window.location.pathname;
+  
+    // Loop through each navigation link
+    navLinks.forEach(link => {
+      // Get the path part of the link's href (e.g., /index.html, /views/cv.html)
+      const linkPath = new URL(link.href).pathname;
+  
+      // Special case: consider '/' and '/index.html' as the same for homepage highlighting
+      const isHome =
+        linkPath.endsWith("index.html") && (currentPath === "/" || currentPath.endsWith("index.html"));
+  
+      // If the link matches the current page, or it's the homepage, add the "active" class
+      if (linkPath === currentPath || isHome) {
+        link.classList.add("active");
+      }
+    });
+  });
+  
+  
